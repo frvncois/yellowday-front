@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Body';
+  src: url('@/assets/body.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Heading';
+  src: url('@/assets/heading.otf') format('opentype');
+}
+
+@theme {
+  --font-sans: 'Body', sans-serif;
+  --font-heading: 'Heading', sans-serif;
+}
