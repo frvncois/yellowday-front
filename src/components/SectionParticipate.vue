@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import RichText from './RichText.vue'
+import Underline from '@/assets/Underline.vue'
 import type { StrapiBlocks } from '@/types/content'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -38,11 +39,20 @@ onMounted(() => {
       <div ref="titleRef" class="flex justify-center text-center [&_h2]:font-heading [&_h2]:text-3xl md:[&_h2]:text-6xl [&_h2]:uppercase [&_h2]:leading-10 md:[&_h2]:leading-12">
         <RichText :blocks="participationTitle" />
       </div>
-      <div ref="introRef" class="flex justify-center text-center [&_p]:text-lg md:[&_p]:text-2xl">
+      <div class="w-[1px] h-20 bg-yellow-400 m-auto"></div>
+      <div class="flex justify-center">
+        <img class="w-25" src="@/assets/shirt.svg"/>
+      </div>
+      <div ref="introRef" class="flex justify-center text-center [&_p]:font-heading [&_p]:text-4xl md:[&_p]:text-4xl [&_p]:uppercase [&_p]:leading-8 md:[&_p]:leading-8">
         <RichText :blocks="participationIntro" />
+      </div>
+      <div class="w-[1px] h-20 bg-yellow-400 m-auto"></div>
+      <div class="flex justify-center">
+        <img class="w-75" src="@/assets/post.svg"/>
       </div>
       <div ref="detailsRef" class="text-center w-full md:w-xl mx-auto [&_p]:mb-4 [&_p:last-child]:text-2xl md:[&_p:last-child]:text-4xl [&_p:last-child]:font-heading [&_p:last-child]:uppercase [&_p:last-child]:leading-none [&_p:last-child]:pt-10">
         <RichText :blocks="participationDetails" />
+      <Underline ref="underlineRef" class="w-full m-auto md:w-xs text-yellow-400"/>
       </div>
     </div>
   </section>
