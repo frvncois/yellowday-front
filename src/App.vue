@@ -19,10 +19,10 @@ onMounted(() => loadContent('en'))
 </script>
 
 <template>
+  <SharedHeader :locale="locale" :locales="locales" @switch="loadContent" />
   <div v-if="loading">Loading…</div>
   <div v-else-if="error">{{ error }}</div>
   <main v-else-if="content">
-    <SharedHeader :locale="locale" :locales="locales" @switch="loadContent" />
     <SectionHero
       :heroTitle="content.HeroTitle"
       :heroLogo="content.HeroLogo"
