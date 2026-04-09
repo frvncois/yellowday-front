@@ -4,7 +4,10 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import RichText from './RichText.vue'
 import { strapiMediaUrl } from '@/lib/strapi'
+import { useI18n } from '@/i18n'
 import type { StrapiBlocks, StrapiMedia } from '@/types/content'
+
+const { t } = useI18n()
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,7 +45,7 @@ onMounted(() => {
       <div ref="detailsRef">
         <RichText class="[&_p]:mb-4 [&_p:first-child]:text-[1.15em] [&_p:last-child]:text-sm" :blocks="resourcesDetails" />
       </div>
-      <a ref="ctaRef" href="#" class="bg-white p-6 text-center uppercase font-heading text-xl rounded-md">Visit the resource hub</a>
+      <a ref="ctaRef" href="#" class="bg-white p-6 text-center uppercase font-heading text-xl rounded-md">{{ t('visitResourceHub') }}</a>
     </div>
     <img class="absolute inset-0 z-1 w-full h-full object-cover opacity-50" v-if="resourcesBackground" :src="strapiMediaUrl(resourcesBackground.url)" :alt="resourcesBackground.alternativeText ?? ''" />
   </section>

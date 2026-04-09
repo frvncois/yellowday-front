@@ -13,19 +13,18 @@ defineProps<{
   partners: readonly Partner[]
 }>()
 
-const titleRef = ref<HTMLElement | null>(null)
 const detailsRef = ref<HTMLElement | null>(null)
 const partnersRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
-  gsap.from([titleRef.value, detailsRef.value, partnersRef.value], {
+  gsap.from([detailsRef.value, partnersRef.value], {
     y: '0.25em',
     opacity: 0,
     duration: 2,
     stagger: 0.15,
     ease: 'power4.out',
     scrollTrigger: {
-      trigger: titleRef.value,
+      trigger: detailsRef.value,
       start: 'top 75%',
     },
   })

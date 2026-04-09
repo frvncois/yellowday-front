@@ -5,7 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MainLogo from '@/assets/MainLogo.vue'
 import Underline from '@/assets/Underline.vue'
 import RichText from './RichText.vue'
+import { useI18n } from '@/i18n'
 import type { StrapiBlocks } from '@/types/content'
+
+const { t } = useI18n()
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,9 +43,9 @@ onMounted(() => {
     <div class="w-full max-w-4xl mx-auto py-16 md:py-36 px-6 lg:px-0 flex flex-col gap-8 items-center text-center">
       <h3 ref="titleRef" class="text-4xl md:text-6xl font-heading uppercase text-yellow-300">{{ ctaTitle }}</h3>
       <div ref="introRef"><RichText class="text-4xl md:text-6xl uppercase font-heading" :blocks="ctaIntro" /></div>
-      <Underline ref="underlineRef" class="w-full md:w-xs text-yellow-400"/>
+      <Underline ref="underlineRef" class="w-full md:w-xs text-yellow"/>
       <div ref="detailsRef"><RichText class="w-full md:w-xl py-8 px-4 md:py-16" :blocks="ctaDetails" /></div>
-      <a ref="ctaRef" href="#" class="bg-yellow-300 p-6 px-8 md:px-24 text-center uppercase font-heading text-xl rounded-md text-black">Lets learn</a>
+      <a ref="ctaRef" href="#" class="bg-yellow-300 p-6 px-8 md:px-24 text-center uppercase font-heading text-xl rounded-md text-black">{{ t('letsLearn') }}</a>
       <MainLogo class="w-48 h-auto pt-16"/>
     </div>
   </section>

@@ -20,7 +20,7 @@ const coverRef = ref<HTMLImageElement | null>(null)
 
 const onScroll = () => {
   if (!coverRef.value) return
-  coverRef.value.style.opacity = String(Math.max(0, 1 - window.scrollY / window.innerHeight))
+  coverRef.value.style.opacity = String(Math.max(0, 0.65 - window.scrollY / window.innerHeight))
 }
 
 onMounted(() => {
@@ -60,11 +60,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   <section ref="sectionRef" class="bg-black sticky top-0 -z-1 relative h-screen overflow-hidden flex items-center pointer-events-none">
     <div class="relative z-2 flex flex-col items-center w-full px-6 md:w-xl md:px-0 text-white text-center gap-8 md:gap-16">
       <img ref="logoRef" class="w-24 md:w-xs" v-if="heroLogo" :src="strapiMediaUrl(heroLogo.url)" :alt="heroLogo.alternativeText ?? ''" />
-      <span ref="titleRef" class="[&_h2:nth-child(2)]:text-yellow-400 [&_h2:nth-child(2)]:text-2xl md:[&_h2:nth-child(2)]:text-4xl gap-4 flex flex-col">
+      <span ref="titleRef" class="[&_h2:nth-child(2)]:text-yellow [&_h2:nth-child(2)]:text-2xl md:[&_h2:nth-child(2)]:text-4xl gap-4 flex flex-col">
         <RichText class="text-xl md:text-3xl font-heading uppercase" :blocks="heroTitle" />
-        <Underline ref="underlineRef" class="w-full md:w-xs text-yellow-400 m-auto"/>
+        <Underline ref="underlineRef" class="w-full md:w-xs text-yellow m-auto"/>
       </span>
     </div>
-    <img ref="coverRef" class="absolute inset-0 z-1 w-screen h-screen object-cover" v-if="heroCover" :src="strapiMediaUrl(heroCover.url)" :alt="heroCover.alternativeText ?? ''" />
+    <img ref="coverRef" class="absolute inset-0 z-1 w-screen h-screen object-cover opacity-65" v-if="heroCover" :src="strapiMediaUrl(heroCover.url)" :alt="heroCover.alternativeText ?? ''" />
   </section>
 </template>
